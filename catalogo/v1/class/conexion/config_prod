@@ -1,0 +1,9 @@
+{
+    "conexion":{
+        "server" : "localhost",
+        "user" : "hexagra1_musicpro",
+        "password" : "nb8r!78l_{df",
+        "database" : "hexagra1_musicpro",
+        "port": "3306"
+    }
+}

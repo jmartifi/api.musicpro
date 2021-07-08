@@ -3,8 +3,35 @@
 class respuestas{
 
     public  $response = [
+        'versión' => 'v1',
         'status' => "ok",
+        'response' => '200',
         "result" => array()
+    ];
+    
+    public  $responseCreate = [
+        'versión' => 'v1',
+        'status' => "created",
+        'response' => '201',
+        "result" => array()
+    ];
+    
+    public  $responseFull = [
+        'cantidad' => '0',
+        'anterior' => '',
+        'siguiente' => '',
+        'response' => '200',
+        "productos" => array()
+    ];
+    
+    public  $responsePr = [
+        'serie del producto' => '',
+        'marca' => '',
+        'codigo' => '',
+        'nombre' => '',
+        'status' => '',
+        'result' => '',
+        "precios" => array()
     ];
 
     public function error_405(){
@@ -27,6 +54,7 @@ class respuestas{
     
     public function error_204($valor = "Consulta exitosa, pero sin registros"){
         $this->response['status'] = "error";
+        $this->response['response'] = 204;
         $this->response['result'] = array(
             "error_id" => "204",
             "error_msg" => $valor
@@ -36,6 +64,7 @@ class respuestas{
 
     public function error_400(){
         $this->response['status'] = "error";
+        $this->response['response'] = 400;
         $this->response['result'] = array(
             "error_id" => "400",
             "error_msg" => "Datos enviados incompletos o con formato incorrecto"

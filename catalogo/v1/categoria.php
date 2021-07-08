@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
 header('Access-Control-Allow-Origin: *');
 
 require_once 'class/respuestas.class.php';
-require_once 'class/menu.class.php';
+require_once 'class/categoria.class.php';
 
 $_respuestas = new respuestas;
 $_menu = new menu;
@@ -21,15 +21,21 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $datos = $_menu->detalleMenu($id);
+        $datos = $_menu->detalle($id);
         header('Content-type: application/json');
         http_response_code($datos['response']);
         echo json_encode($datos);
-    }else{
-        $menu = $_menu->listarMenu();
+    }elseif(isset($_GET['menu'])){
+        $menu = $_GET['menu'];
+        $categorias = $_menu->listar($menu);
         header('Content-type: application/json');
         http_response_code(200);
-        echo json_encode($menu);
+        echo json_encode($categorias);
+    }else{
+        header('Content-Type: application/json');
+        $datosArray = $_respuestas->error_400();
+        http_response_code(400);
+        echo json_encode($datosArray);
     }
 
 }elseif($_SERVER['REQUEST_METHOD'] == 'POST'){

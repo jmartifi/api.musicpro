@@ -46,18 +46,31 @@ class conexion {
             $resultArray[] = $key;
         }
         return $this->convertirUTF8($resultArray);
-
+    }
+    
+    public function countReg($sqlstr){
+        $results = $this->conexion->query($sqlstr);
+        $filas = $results->num_rows;
+        return $filas;
+    }
+    
+    public function valQuery($sqlstr){
+        $results = $this->conexion->query($sqlstr);
+        $filas = $results->num_rows;
+        return $filas;
     }
 
     public function nonQuery($sqlstr){
         $results = $this->conexion->query($sqlstr);
-        return $this->conexion->affected_rows;
+        $filas = $this->conexion->affected_rows;
+        
+        return $results;
     }
 
     //INSERT 
     public function nonQueryId($sqlstr){
         $results = $this->conexion->query($sqlstr);
-         $filas = $this->conexion->affected_rows;
+        $filas = $this->conexion->affected_rows;
          if($filas >= 1){
             return $this->conexion->insert_id;
          }else{
