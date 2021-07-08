@@ -9,11 +9,11 @@ Paso 1
 tener un servidor que soporte PHP Version 7.4.3 como minimo y Mysql 5.7
 
 Paso2   
-dentro de la carpeta HTDOCS (o la que se alojen los sitios)
+dentro de la carpeta HTDOCS (o la que se alojen los sitios)   
 pegar carpeta "api.musicpro" que se encuentra dentro de la carpeta "codigo_fuente"
 
 Paso 3   
-Crear una base de datos Mysql con el nombre "musicpro" y cotejamiento "utf8_general_ci"
+Crear una base de datos Mysql con el nombre "musicpro" y cotejamiento "utf8_general_ci"   
 Importar base de datos con archivo “db_api_musicpro.sql”
 
 Paso 4   
