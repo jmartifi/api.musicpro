@@ -5,7 +5,7 @@
  
 ## Montar API Local
 
-Paso 1
+Paso 1   
 tener un servidor que soporte PHP Version 7.4.3 como minimo y Mysql 5.7
 
 Paso2
